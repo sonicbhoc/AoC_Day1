@@ -8,8 +8,10 @@ let main args =
         use fileStream = new FileStream(args[0], FileMode.Open)
         use fileStreamReader = new StreamReader(fileStream)
         let! fileData = fileStreamReader.ReadToEndAsync() |> Async.AwaitTask
+        let strData = Data.parseData fileData
 
-        Data.parseData fileData ||> LocationGroup.findDistance |> printfn "Answer: %d"
+        strData ||> LocationGroup.findDistance |> printfn "Distance: %d"
+        strData ||> LocationGroup.findSimilarity |> printfn "Similarity: %d"
 
         return 0
     } |> Async.RunSynchronously

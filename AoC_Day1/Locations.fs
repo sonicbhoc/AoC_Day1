@@ -21,3 +21,6 @@ module LocationGroup =
         (group1, group2)
         ||> List.map2 (fun (Location.Id locId1) (Location.Id locId2) -> locId2 - locId1 |> abs)
         |> List.sum
+
+    let findSimilarity (Locations group1) (Locations group2) =
+        0
