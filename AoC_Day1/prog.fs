@@ -14,4 +14,5 @@ let main args =
         strData ||> LocationGroup.findSimilarity |> printfn "Similarity: %d"
 
         return 0
-    } |> Async.RunSynchronously
+    }
+    |> Async.RunSynchronously
